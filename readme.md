@@ -20,3 +20,6 @@ this repo share the codes used during the summer programming class, any contribu
  - guess number (JavaScript, HTML)
  - fib number (JavaScript)
  - prime number (JavaScript)
+
+## External Links
+ - Trello Board https://trello.com/b/BSy6N3AL/programming-class
