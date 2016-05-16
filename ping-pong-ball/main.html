@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+        var px = 0;
+        var py = 0;
+        window.onmousemove = function (event) {
+            px = event.clientX;
+            py = event.clientY;
+            var pad = $('#pad');
+            pad.offset({
+                left: px - pad.width() / 2,
+                top: py - pad.height() / 2
+            })
+        };
+        var bx = 250;
+        var by = 100;
+        var vx = 5, vy = 5;
+        function isInRange(min, max, a) {
+            return a >= min && a <= max;
+        }
+        function hasIntersect(aLeft, aRight, bLeft, bRight) {
+            var res = isInRange(aLeft, aRight, bLeft) || isInRange(aLeft, aRight, bRight);
+            if (res) {
+                console.log(arguments);
+                console.log('result=', res);
+            }
+            return res;
+        }
+        setInterval(function () {
+            var c = $('#container');
+            var wallW = c.width();
+            var wallH = c.height();
+            // calc new position
+            bx += vx;
+            by += vy;
+            // apply new position
+            var ball = $('#ball');
+            ball.offset({
+                left: bx - ball.width() / 2,
+                top: by - ball.height() / 2
+            });
+            // check wall bound
+            var bw = ball.width() / 2;
+            var bh = ball.height() / 2;
+            if (bx < 0 + bw || bx >= wallW - bw) vx *= -1;
+            if (by < 0 + bh || by >= wallH - bh) vy *= -1;
+            // check hit pad
+            var pad = $('#pad');
+            var pw = pad.width() / 2;
+            var ph = pad.height() / 2;
+            if (hasIntersect(px - pw, px + pw, bx - bw, bx + bw) ||
+                    hasIntersect(py - ph, py + ph, by - bw, by + bw)
+            ) {
+                vx *= -1;
+                vy *= -1;
+            }
+        }, 10);
+    </script>
+</head>
+<body>
+<div id="container" style="position:absolute;width:100%;height:100%">
+    <img id="ball" src="ball.png" style="width : 50px; position : absolute">
+    <img id="pad" src="pad.png" style="width : 150px; position : absolute">
+</div>
+</body>
+</html>
