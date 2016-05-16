@@ -18,7 +18,7 @@ this repo share the codes used during the summer programming class, any contribu
 
 ## Done
  - guess number (JavaScript, HTML)
- - fib number (JavaScript)
+ - fib number (JavaScript, Haskell)
  - prime number (JavaScript)
 
 ## External Links
