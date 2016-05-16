@@ -1,0 +1,38 @@
+<head>
+    <style type="text/css">
+    </style>
+    <script>
+        var b = Math.round(Math.random() * 99 + 1);
+        var min = 1;
+        var max = 100;
+        function isInRange(min, max, a) {
+            return a >= min && a <= max;
+        }
+        function test() {
+            console.log('testing', a.value);
+            if (a.value * 1 != a.value || a.value == "") {
+                alert('number only !!');
+                return;
+            }
+            if (a.value == b) {
+                console.log('right');
+                hint.innerText = "Great ! the number is " + b;
+            } else {
+                if (a.value < b) {
+                    console.log('too small');
+                    min = a.value;
+                } else {
+                    console.log('too large');
+                    max = a.value;
+                }
+                hint.innerText = min + " - " + max;
+            }
+        }
+    </script>
+</head>
+<body>
+<h1> guess a integer</h1>
+<h2 id="hint">1 - 100</h2>
+<input id='a' type="text">
+<button onclick="test()">Guess</button>
+</body>
