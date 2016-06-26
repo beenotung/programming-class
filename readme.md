@@ -16,7 +16,7 @@ this repo share the codes used during a summer programming class, any idea / con
 
 ## Done
  - guess number (JavaScript, HTML)
- - fib number (JavaScript)
+ - fib number (JavaScript, Haskell)
  - prime number (JavaScript)
  - ping pong ball (JavaScript)
  - random number generator with test (Erlang)
