@@ -1,6 +1,6 @@
 # Programming Class
 #### demo programs for beginner
-this repo share the codes used during a summer programming class, any contribution is welcomed :)
+this repo share the codes used during a summer programming class, any idea / contribution are welcomed :)
 
 ## Covered Language
  - Javascript
