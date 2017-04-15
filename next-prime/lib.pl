@@ -11,8 +11,5 @@ prime(X) :-
 next_prime(X,R) :-
   Start is X + 1,
   End is X * 2,
-  next_prime_(Start,End,R).
-
-next_prime_(Start,End,R) :-
   between(Start,End,R),
   prime(R).
