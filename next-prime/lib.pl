@@ -1,7 +1,5 @@
-prime(2).
-prime(3).
 prime(X) :-
-  X > 3,
+  X > 1,
   \+ (
     X1 is X - 1,
     between(2,X1,N),
