@@ -1,5 +1,5 @@
 /**
- * Created by node on 5/16/16.
+ * Created by beeno on 5/16/16.
  */
 function isPrime(n) {
     for (var i = 2; i <= n - 1; i++) {
