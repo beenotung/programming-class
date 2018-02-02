@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Guess Number</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background-color: black;
+        }
+
+        @keyframes sun_color {
+            0% {
+                color: yellow;
+            }
+            50% {
+                color: red;
+            }
+            100% {
+                color: yellow;
+            }
+
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #sun {
+            /*animation-name: sun_color;*/
+            /*animation-duration: 1s;*/
+            animation: sun_color 1s infinite linear;
+            font-size: 4rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+This is a guess number game.<br>
+这是一个猜数字游戏<br>
+<br>
+Please guess a number from <span id="range"></span>:
+<input type="number" id="guess_num">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://raw.github.com/daneden/animate.css/master/animate.css">
+<script>
+    /* 1..100 */
+    answer = Math.round(Math.random() * 99 + 1)
+    lower_num = 1
+    upper_num = 100
+
+    range.textContent = lower_num + ' to ' + upper_num
+
+    function guess() {
+        if (guess_num.value == answer) {
+            message.textContent = 'correct guess'
+            swal('boom!!')
+        } else if (guess_num.value < answer) {
+            message.textContent = guess_num.value + ' is too small'
+            lower_num = guess_num.value * 1 + 1
+        } else {
+            // larger than answer
+            message.textContent = guess_num.value + ' is too large'
+            upper_num = guess_num.value * 1 - 1
+        }
+        range.textContent = lower_num + ' to ' + upper_num
+    }
+
+    function toRed() {
+        sun.style.color = 'red';
+        setTimeout(toYellow, 1000)
+    }
+
+    function toYellow() {
+        sun.style.color = 'yellow';
+        setTimeout(toRed, 1000)
+    }
+
+    // toRed();
+
+</script>
+<button onclick="guess()">Guess</button>
+<br><span id="message" style="color: yellow;">Please guess it.</span>
+<br><span id="sun">🌞</span>
+</body>
+</html>
