@@ -1,0 +1,113 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Frog Cross River</title>
+</head>
+<body onkeypress="onKeyPress(event)">
+<style>
+  body {
+    background-color: lightblue;
+    margin: 0;
+  }
+
+  #pool {
+    margin: 12px;
+    border: 2px black solid;
+    width: 600px;
+    height: 800px;
+  }
+
+  #frog {
+    width: 80px;
+    position: absolute;
+  }
+
+  .wood {
+    width: 80px;
+    position: absolute;
+  }
+</style>
+<div id="pool">
+  <img id="frog" src="frog.png">
+  <img class="wood" id="wood" src="wood.png">
+</div>
+<script>
+  var pool = {
+    width: 600,
+    height: 800
+  };
+  var offset = {
+    top: 12 + 2,
+    left: 12 + 2
+  };
+  frog.style.left = pool.width / 2 - frog.width / 2 + offset.left;
+  frog.style.top = pool.height - frog.height + offset.top - 1;
+
+  function getStyleNum(name, e) {
+    return e.style[name].replace('px', '') * 1;
+  }
+
+  function getTop(e) {
+    return getStyleNum('top', e);
+  }
+
+  function getLeft(e) {
+    return getStyleNum('left', e);
+  }
+
+  function setTop(e, y) {
+    e.style.top = y;
+  }
+
+  function setLeft(e, x) {
+    e.style.left = x;
+  }
+
+  function onKeyPress(event) {
+    var x, y;
+    switch (event.key) {
+      case 'w':
+        y = getTop(frog) - frog.height;
+        y = Math.max(y, offset.top + 1);
+        if (y == offset.top + 1) {
+          alert('you win');
+        }
+        setTop(frog, y);
+        break;
+      case 's':
+        y = getTop(frog) + frog.height;
+        y = Math.min(y, pool.height + offset.top - 1 - frog.height);
+        setTop(frog, y);
+        break;
+      case 'a':
+        x = getLeft(frog) - frog.width;
+        x = Math.max(x, offset.left + 1);
+        setLeft(frog, x);
+        break;
+      case 'd':
+        x = getLeft(frog) + frog.width;
+        x = Math.min(x, pool.width + offset.left - 1 - frog.width);
+        setLeft(frog, x);
+        break;
+      case 'F5':
+      case 'F12':
+        break;
+      default:
+        alert('Please press WASD to move the frog.');
+    }
+  }
+
+  var speed = 2;
+  var woodPos = {
+    x: 45,
+    y: 57
+  };
+  setInterval(function () {
+    woodPos.x += speed;
+    setLeft(wood, woodPos.x);
+  }, 1000 / 60);
+  setLeft(wood, woodPos.x);
+  setTop(wood, woodPos.y);
+</script>
+</body>
+</html>
