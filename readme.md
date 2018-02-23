@@ -10,7 +10,6 @@ this repo share the codes used during a summer programming class, any idea / con
  - Linux Shell
 
 ## To Do
- - sudoku solver
 
 ## Doing
 
@@ -20,6 +19,7 @@ this repo share the codes used during a summer programming class, any idea / con
  - prime number (JavaScript)
  - ping pong ball (JavaScript)
  - random number generator with test (Erlang)
+ - compress (Pattern Matching) (JavaScript, Erlang)
 
 ## External Links
  - Trello Board https://trello.com/b/BSy6N3AL/programming-class
