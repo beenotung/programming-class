@@ -1,0 +1,21 @@
+= compression
+
+== Rule
+
+For each continuous sub-sequence of items in the sequence,
+represent the item as `[item, frequency]`;
+For each single sub-sequence,
+represent it as is (i.e. `item`).
+
+== Example
+
+.Sample Cases
+|===
+| Input | Output
+
+| [a] | [a]
+| [a,b] | [a,b]
+| [a,a,b] | [[a,2],b]
+| [1,1,2,3] | [[1,2],2,3]
+| [1,1,2,1,1] | [[1,2],2,[1,2]]
+|===
