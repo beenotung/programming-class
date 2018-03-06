@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+xmake build
+build/main $@
